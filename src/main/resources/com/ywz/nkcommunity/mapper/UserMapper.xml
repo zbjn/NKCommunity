@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ywz.nkcommunity.mapper.UserMapper">
+
+    <sql id="selectUserFields">
+        id, username, password, email, type, status, create_time
+    </sql>
+
+    <!--User findUserById(@Param("id")int id);-->
+    <select id="findUserById" resultType="com.ywz.nkcommunity.entity.User">
+        select * from user where id = #{id}
+    </select>
+
+</mapper>
