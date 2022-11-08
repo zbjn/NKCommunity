@@ -15,4 +15,13 @@ public interface UserMapper extends BaseMapper<User> {
 
     User findUserById(@Param("id")int id);
 
+    User selectByUserName(@Param("username")String username);
+
+    User selectByEmail(@Param("email")String email);
+
+    int insertUser(User user);
+
+    int updateStatus(@Param("id") int id, @Param("status") int status);
+
+
 }

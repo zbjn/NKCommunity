@@ -10,9 +10,34 @@
         id, username, password, email, type, status, create_time
     </sql>
 
+    <sql id="insertFields">
+        username, password, salt, email, type, status, activation_code, header_url, create_time
+    </sql>
+
     <!--User findUserById(@Param("id")int id);-->
     <select id="findUserById" resultType="com.ywz.nkcommunity.entity.User">
         select * from user where id = #{id}
     </select>
+
+    <!--User selectByUserName(@Param("username")String username);-->
+    <select id="selectByUserName" resultType="com.ywz.nkcommunity.entity.User">
+        select * from user where username = #{username}
+    </select>
+
+    <!--User selectByEmail(@Param("email")String email);-->
+    <select id="selectByEmail" resultType="com.ywz.nkcommunity.entity.User">
+        select * from user where email = #{email}
+    </select>
+
+    <insert id="insertUser" parameterType="com.ywz.nkcommunity.entity.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (<include refid="insertFields"></include>)
+        VALUES (#{username}, #{password}, #{salt}, #{email}, #{type}, #{status},
+        #{activationCode}, #{headerUrl}, #{createTime})
+    </insert>
+
+    <!--int updateStatus(@Param("id") int id, @Param("status") int status);-->
+    <update id="updateStatus" >
+        UPDATE user SET status = #{status} WHERE id = #{id}
+    </update>
 
 </mapper>

@@ -23,7 +23,6 @@ import java.util.Map;
  * @date 2022/11/6 - 17:43
  */
 
-@RequestMapping("/community")
 @Controller
 public class HomeController {
 
@@ -37,7 +36,7 @@ public class HomeController {
     public String getIndexPage(Model model, Page page){
 
         page.setRows(discussPostService.selectDiscussPostRows(0));
-        page.setPath("/community/index");
+        page.setPath("/index");
 
 
         List<DiscussPost> postList = discussPostService.pageDiscussPost(0, page.getCurrent(), page.getLimit());

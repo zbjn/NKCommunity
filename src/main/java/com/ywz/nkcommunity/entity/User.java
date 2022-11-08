@@ -8,8 +8,10 @@ import java.util.Date;
  */
 
 public class User {
-    private Integer id;
-    private String userName;
+
+
+    private Long id;
+    private String username;
     private String password;
     private String salt;
     private String email;
@@ -19,20 +21,20 @@ public class User {
     private String headerUrl;
     private Date createTime;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassword() {
@@ -103,7 +105,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", email='" + email + '\'' +
