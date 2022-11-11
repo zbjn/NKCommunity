@@ -18,4 +18,8 @@ public interface UserService extends IService<User> {
 
     int activation(int userId,String activationCode);
 
+    Map<String,Object> login(String username,String password,int expiredSeconds);
+
+    void logout(String ticket);
+
 }

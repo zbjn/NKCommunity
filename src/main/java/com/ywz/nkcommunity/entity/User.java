@@ -10,7 +10,7 @@ import java.util.Date;
 public class User {
 
 
-    private Long id;
+    private int id;
     private String username;
     private String password;
     private String salt;
@@ -21,11 +21,11 @@ public class User {
     private String headerUrl;
     private Date createTime;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

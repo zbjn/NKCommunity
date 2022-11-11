@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ywz.nkcommunity.mapper.LoginTicketMapper">
+
+    <!--int insertLoginTicket(LoginTicket loginTicket);-->
+    <insert id="insertLoginTicket" parameterType="com.ywz.nkcommunity.entity.LoginTicket" keyProperty="id" useGeneratedKeys="true">
+        insert into login_ticket (user_id,ticket,status,expired)
+        values (#{userId},#{ticket},#{status},#{expired})
+    </insert>
+
+    <!--LoginTicket selectByTicket(@Param("ticket")String ticket)-->
+    <select id="selectByTicket" resultType="com.ywz.nkcommunity.entity.LoginTicket">
+        select * from login_ticket where ticket = #{ticket}
+    </select>
+
+    <!--int updateStatus(@Param("ticket")String ticket,@Param("status") int status);-->
+    <update id="updateStatus" parameterType="com.ywz.nkcommunity.entity.LoginTicket">
+        update login_ticket set status = #{status} where ticket = #{ticket}
+    </update>
+
+</mapper>
